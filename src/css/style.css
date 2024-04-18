@@ -6,6 +6,10 @@ html,body{
 body{
     background: linear-gradient(0deg, rgb(30, 12, 33) 0%, rgb(28, 10, 54) 35%, rgb(0, 8, 42) 100%);
     background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
 .carousel {
