@@ -1,0 +1,91 @@
+/* styles.css */
+html,body{
+    margin : 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(0deg, rgb(30, 12, 33) 0%, rgb(28, 10, 54) 35%, rgb(0, 8, 42) 100%);
+    background-attachment: fixed;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw; /* Ancho de 40vw */
+    min-width: 340px; /* Mínimo ancho de 300px */
+    height: auto;
+    aspect-ratio: 16/9;
+    position: relative; /* Agregamos posición relativa al contenedor */
+    overflow: hidden; /* Recortar cualquier parte de la imagen que sobresalga del contenedor */
+}
+
+.carousel-image {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Ajusta la altura automáticamente para mantener el aspect ratio */
+    object-fit: cover; /* Cubre el contenedor con la imagen */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+/* Estilos para los botones previo y siguiente del carousel */
+.prev-btn,
+.next-btn {
+    background-color: rgba(255, 255, 255, 0.197);
+    color: rgb(0, 0, 0);
+    height: 100%; /* El botón ocupa toda la altura del contenedor */
+    width: 3.5vw; /* Ancho deseado para los botones */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 20px; /* Aplicamos el redondeo al contenedor padre */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.prev-btn {
+    left: 0; /* Botón previo a la izquierda */
+}
+
+.next-btn {
+    right: 0; /* Botón siguiente a la derecha */
+}
+.caja{
+    min-width: 50vw;
+    min-height: 30vh;
+    background: rgb(255, 200, 61);
+    color: rgb(26, 26, 26);
+    box-sizing: border-box;
+    font-size: 48px;
+    overflow: visible;
+}
+
+.bg-amarillo{
+    background: rgb(255, 200, 61);
+}
+.text-amarillo{
+    color:rgb(255, 200, 61);
+}
+
+.bg-blanco{
+    background: whitesmoke;
+}
+.text-blanco{
+    color:whitesmoke;
+}
+
+.bg-negro{
+    background: rgb(26, 26, 26);
+}
+.text-negro{
+    color:rgb(26, 26, 26);
+}
+
+.bg-azul{
+    background: rgb(13, 0, 55);
+}
+.text-azul{
+    color:rgb(13, 0, 55);
+}
