@@ -17,7 +17,7 @@ const navbar = () => {
 
     let $mobileMenuButton = document.createElement('button');
     $mobileMenuButton.setAttribute('type', 'button');
-    $mobileMenuButton.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'rounded-md', 'p-2', 'text-negro', 'hover:bg-azul', 'hover:text-blanco', 'focus:outline-none', 'focus:ring-2', 'focus:ring-inset', 'focus:ring-white');
+    $mobileMenuButton.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'rounded-md', 'p-2', 'text-negro', 'hover-bg-azul', 'hover-text-blanco', 'focus:outline-none', 'focus:ring-2', 'focus:ring-inset', 'focus:ring-white');
     $mobileMenuButton.setAttribute('aria-controls', 'mobile-menu');
     $mobileMenuButton.setAttribute('aria-expanded', 'false');
 
@@ -61,12 +61,12 @@ const navbar = () => {
     $logoContainer.classList.add('flex', 'flex-shrink-0', 'items-center');
 
     let $logoImg = document.createElement('img');
-    $logoImg.classList.add('h-8', 'w-auto');
+    $logoImg.classList.add('noselect','h-8', 'w-auto');
     $logoImg.setAttribute('src', '/src/img/HonorOfKingsLogo2.webp');
     $logoImg.setAttribute('alt', 'Your Company');
 
     let $title = document.createElement('h1');
-    $title.classList.add('text-negro', 'font-bold');
+    $title.classList.add('noselect','text-negro', 'font-bold');
     $title.textContent = 'Honor of Kings';
 
     // Adjuntar el logo y el título
@@ -82,17 +82,17 @@ const navbar = () => {
 
     // Crear los enlaces
     let linksData = [
-        { href: '#', text: 'Inicio', className: ['bg-azul', 'text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'], ariaCurrent: 'page' },
-        { href: '#', text: 'Personajes', className: ['text-negro', 'hover:bg-azul', 'hover:text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'] },
-        { href: '#', text: 'Plataformas', className: ['text-negro', 'hover:bg-azul', 'hover:text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'] },
-        { href: '#', text: 'Contactanos', className: ['text-negro', 'hover:bg-azul', 'hover:text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'] }
+        { href: '#inicio', text: 'Inicio', ariaCurrent: 'page' },
+        { href: '#personajes', text: 'Personajes'},
+        { href: '#plataformas', text: 'Plataformas'},
+        { href: '#contactanos', text: 'Contactanos'}
     ];
 
     linksData.forEach(linkData => {
         let $link = document.createElement('a');
         $link.setAttribute('href', linkData.href);
         $link.textContent = linkData.text;
-        $link.classList.add('block'); // Agregar la clase 'block'
+        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'); // Agregar la clase 'block'
         if (typeof linkData.className === 'string') {
             linkData.className.split(' ').forEach(className => {
                 $link.classList.add(className.trim()); // Agregar cada clase individualmente
@@ -127,7 +127,7 @@ const navbar = () => {
         let $link = document.createElement('a');
         $link.setAttribute('href', linkData.href);
         $link.textContent = linkData.text;
-        $link.classList.add(linkData.className);
+        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium');
         if (linkData.ariaCurrent) {
             $link.setAttribute('aria-current', linkData.ariaCurrent);
         }

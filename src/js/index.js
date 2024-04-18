@@ -1,7 +1,10 @@
 import navbar from "/src/modules/navbar.mjs";
+import inicio from "/src/modules/inicio.mjs";
 const $root = document.getElementById("root");
 const $navbar = navbar();
+const $inicio = inicio();
 $root.appendChild($navbar);
+$root.appendChild($inicio);
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const image = document.querySelector(".carousel-image");

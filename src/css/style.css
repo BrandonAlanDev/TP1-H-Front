@@ -1,4 +1,4 @@
-/* styles.css */
+
 html,body{
     margin : 0;
     padding: 0;
@@ -10,8 +10,14 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
-
+h1{
+    font-size: 2rem;
+}
 .carousel {
     display: flex;
     justify-content: center;
@@ -56,21 +62,20 @@ body{
 .next-btn {
     right: 0; /* Botón siguiente a la derecha */
 }
-.caja{
-    min-width: 50vw;
-    min-height: 30vh;
-    background: rgb(255, 200, 61);
-    color: rgb(26, 26, 26);
-    box-sizing: border-box;
-    font-size: 48px;
-    overflow: visible;
-}
 
 .bg-amarillo{
     background: rgb(255, 200, 61);
 }
 .text-amarillo{
     color:rgb(255, 200, 61);
+}
+.hover-bg-amarillo:hover{
+    background: rgb(255, 200, 61);
+    transition-duration: 0.2s;
+}
+.hover-text-amarillo:hover{
+    color:rgb(255, 200, 61);
+    transition-duration: 0.2s;
 }
 
 .bg-blanco{
@@ -79,6 +84,14 @@ body{
 .text-blanco{
     color:whitesmoke;
 }
+.hover-bg-blanco:hover{
+    background: whitesmoke;
+    transition-duration: 0.2s;
+}
+.hover-text-blanco:hover{
+    color:whitesmoke;
+    transition-duration: 0.2s;
+}
 
 .bg-negro{
     background: rgb(26, 26, 26);
@@ -86,10 +99,36 @@ body{
 .text-negro{
     color:rgb(26, 26, 26);
 }
+.hover-bg-negro:hover{
+    background: rgb(26, 26, 26);
+    transition-duration: 0.2s;
+}
+.hover-text-negro:hover{
+    color:rgb(26, 26, 26);
+    transition-duration: 0.2s;
+}
 
 .bg-azul{
     background: rgb(13, 0, 55);
 }
 .text-azul{
     color:rgb(13, 0, 55);
+}
+.hover-bg-azul:hover{
+    background: rgb(13, 0, 55);
+    transition-duration: 0.2s;
+}
+.hover-text-azul:hover{
+    color:rgb(13, 0, 55);
+    transition-duration: 0.2s;
+}
+
+.noselect{
+    user-select: none;
+}
+
+.dolia{
+    background-image:url('/src/img/dolia.webp');
+    background-size:cover;
+    background-position: bottom;
 }
