@@ -127,8 +127,16 @@ h1{
     user-select: none;
 }
 
-.dolia{
+.personaje{
     background-image:url('/src/img/dolia.webp');
     background-size:cover;
     background-position: bottom;
+}
+
+@media (min-width: 1024px) {
+    .lg-ml-60vw {
+        margin-left: 60vw;
+        height: 80%;
+        margin-top: 10vh;
+    }
 }
