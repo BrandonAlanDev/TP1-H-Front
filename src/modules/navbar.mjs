@@ -1,7 +1,7 @@
 const navbar = () => {
     // Crear el elemento nav y añadir la clase bg-amarillo
     let $nav = document.createElement(`nav`);
-    $nav.classList.add("bg-amarillo");
+    $nav.classList.add('bg-amarillo','navegacion');
 
     // Crear el contenedor principal
     let $container = document.createElement('div');

@@ -127,16 +127,81 @@ h1{
     user-select: none;
 }
 
-.personaje{
+.personaje1{
     background-image:url('/src/img/dolia.webp');
     background-size:cover;
     background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje2{
+    background-image:url('/src/img/biron.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje3{
+    background-image:url('/src/img/lam.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje4{
+    background-image:url('/src/img/milady.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje5{
+    background-image:url('/src/img/alessio.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.escondido{
+    overflow: hidden;
+    align-content: end;
+    justify-content: end;
+}
+.telon-blanco{
+    position: absolute;
+    overflow: hidden;
+    float: left;
+    width: 100vw;
+    height: 50%;
+    z-index: 1;
+}
+.info-personaje{
+    z-index: 2;
+}
+@media (min-width: 640px) {
+    .navegacion{
+        position: fixed;
+    }
+}
+
+@media (min-width: 720px) {
+    .lg-ml-60vw {
+        margin-left: 40%;
+        height: 80%;
+        margin-top: 10vh;
+    }
+    .navegacion{
+        position: fixed;
+    }
 }
 
 @media (min-width: 1024px) {
     .lg-ml-60vw {
-        margin-left: 60vw;
+        margin-left: 60%;
         height: 80%;
         margin-top: 10vh;
+    }
+    .navegacion{
+        position: fixed;
     }
 }

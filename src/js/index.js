@@ -48,4 +48,41 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     intervalId = setInterval(nextImage, 3000);
+
+    const characters = [
+        "personaje1",
+        "personaje2",
+        "personaje3",
+        "personaje4",
+        "personaje5"
+    ];
+    let intervalCharacter;
+
+    const $character=document.getElementById('personajes');
+
+    const actualCharacter = () => {
+        if($character.classList.contains('personaje1'))return['personaje1','personaje2'];
+        if($character.classList.contains('personaje2'))return['personaje2','personaje3'];
+        if($character.classList.contains('personaje3'))return['personaje3','personaje4'];
+        if($character.classList.contains('personaje4'))return['personaje4','personaje5'];
+        if($character.classList.contains('personaje5'))return['personaje5','personaje1'];
+    }
+
+    function nextCharacter() {
+        let $showedCharacter = actualCharacter();
+        $character.classList.remove($showedCharacter[0]);
+        $character.classList.add($showedCharacter[1]);
+    }
+
+    function selectedCharacter(index) {
+        let $showedCharacter = actualCharacter();
+        $character.classList.remove($showedCharacter[0]);
+        $character.classList.add(characters[index]);
+    }
+
+    function resetInterval() {
+        clearInterval(intervalCharacter);
+        intervalId = setInterval(nextCharacter, 10000);
+    }
+    intervalCharacter = setInterval(nextCharacter, 10000);
 });
