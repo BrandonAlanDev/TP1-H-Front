@@ -1,7 +1,7 @@
 const inicio = () =>{
     let $inicio = document.createElement(`section`);
     $inicio.setAttribute('id','inicio');
-    $inicio.classList.add('container','flex','flex-col','lg:flex-row','lg:justify-between','mt-7');
+    $inicio.classList.add('container','flex','flex-col','lg:flex-row','lg:justify-between','inicio');
     
     let $articleText = document.createElement('article');
     $articleText.classList.add('lg:w-1/2','lg:mr-5vw','bg-amarillo','lg:mb-0','mb-4','p-4','ml-5','mr-5','text-center','rounded-2xl')
