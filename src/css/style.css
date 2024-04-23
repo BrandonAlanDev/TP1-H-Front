@@ -18,6 +18,9 @@ body{
 h1{
     font-size: 2rem;
 }
+.inicio{
+    margin-top: 12vh;
+}
 .carousel {
     display: flex;
     justify-content: center;
@@ -36,7 +39,6 @@ h1{
     object-fit: cover; /* Cubre el contenedor con la imagen */
     object-position: center; /* Centra la imagen dentro del contenedor */
 }
-
 /* Estilos para los botones previo y siguiente del carousel */
 .prev-btn,
 .next-btn {
@@ -127,16 +129,100 @@ h1{
     user-select: none;
 }
 
-.personaje{
+#personajes{
+    flex-wrap: wrap;
+}
+
+.personaje1{
     background-image:url('/src/img/dolia.webp');
     background-size:cover;
     background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje2{
+    background-image:url('/src/img/biron.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje3{
+    background-image:url('/src/img/lam.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje4{
+    background-image:url('/src/img/milady.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.personaje5{
+    background-image:url('/src/img/alessio.webp');
+    background-size:cover;
+    background-position: bottom;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.escondido{
+    overflow: hidden;
+}
+.info-personaje{
+    z-index: 2;
+}
+.navegacion{
+    z-index: 99;
+}
+.lg-ml-60vw {
+    min-width: 300px;
+    width: 80vw;
+    height: fit-content;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
+    margin-right: 5vw;
+}
+.titulo-personajes{
+    width: fit-content;
+    margin-right : 5vh;
+    margin-top: 5vw;
+}
+@media (min-width: 640px) {
+    .navegacion{
+        position: fixed;
+        transform: translateY(-12vh);
+        width: 100%;
+    }
+    .titulo-personajes{
+        margin-right : 8vh;
+    }
+    .lg-ml-60vw {
+        margin-left: 40%;
+        margin-top: 10vh;
+        width: 50vw;
+    }
+}
+
+@media (min-width: 720px) {
+    .lg-ml-60vw {
+        margin-left: 40%;
+        margin-top: 10vh;
+        width: 50vw;
+    }
+    .titulo-personajes{
+        margin-right : 9vh;
+    }
 }
 
 @media (min-width: 1024px) {
     .lg-ml-60vw {
-        margin-left: 60vw;
-        height: 80%;
-        margin-top: 10vh;
+        margin-left: 60%;
+        width: 40vw;
+    }
+    .titulo-personajes{
+        margin-right : 10vh;
     }
 }
