@@ -81,17 +81,23 @@ const navbar = () => {
 
     // Crear los enlaces
     let linksData = [
-        { href: '#inicio', text: 'Inicio', ariaCurrent: 'page' },
-        { href: '#personajes', text: 'Personajes'},
-        { href: '#plataformas', text: 'Plataformas'},
-        { href: '#contactanos', text: 'Contactanos'}
+        { href: '#inicio', class:'btninicio' , text: 'Inicio', ariaCurrent: 'page' },
+        { href: '#personajes', class:'btnpersonaje' , text: 'Personajes'},
+        { href: '#opinar', class:'btnopinar' , text: 'Opinar'},
+        { href: '#opiniones', class:'btnopiniones' , text: 'Opiniones'}
     ];
 
     linksData.forEach(linkData => {
         let $link = document.createElement('a');
         $link.setAttribute('href', linkData.href);
         $link.textContent = linkData.text;
-        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium'); // Agregar la clase 'block'
+        let $class;
+        if(linkData.href=='#inicio'){$class='btninicio'}
+        else if(linkData.href=='#personajes'){$class='btnpersonajes'}
+        else if(linkData.href=='#opinar'){$class='btnopinar'}
+        else if(linkData.href=='#opiniones'){$class='btnopiniones'}
+        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium',$class); // Agregar la clase 'block'
+        if($link.getAttribute('href')=='#inicio'){$link.classList.add('active');}
         if (typeof linkData.className === 'string') {
             linkData.className.split(' ').forEach(className => {
                 $link.classList.add(className.trim()); // Agregar cada clase individualmente
@@ -126,7 +132,12 @@ const navbar = () => {
         let $link = document.createElement('a');
         $link.setAttribute('href', linkData.href);
         $link.textContent = linkData.text;
-        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium');
+        let $class;
+        if(linkData.href=='#inicio'){$class='btninicio'}
+        else if(linkData.href=='#personajes'){$class='btnpersonajes'}
+        else if(linkData.href=='#opinar'){$class='btnopinar'}
+        else if(linkData.href=='#opiniones'){$class='btnopiniones'}
+        $link.classList.add('noselect','block','text-negro', 'hover-bg-azul', 'hover-text-blanco', 'rounded-md', 'px-3', 'py-2', 'text-sm', 'font-medium',$class);
         if (linkData.ariaCurrent) {
             $link.setAttribute('aria-current', linkData.ariaCurrent);
         }

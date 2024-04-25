@@ -114,4 +114,32 @@ document.addEventListener("DOMContentLoaded", function() {
         intervalCharacter = setInterval(nextCharacter, 10000);
     }
     intervalCharacter = setInterval(nextCharacter, 10000);
+
+    let $sections = document.querySelectorAll(`section`);
+    let $linksNav = document.querySelectorAll(`div a`);
+
+    window.onscroll = () => {
+        $sections.forEach (sec =>{
+            let top = window.scrollY;
+            let offset = sec.offsetTop-150;
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
+
+            if(top>= offset && top < offset + height){
+                $linksNav.forEach(links=>{
+                    links.classList.remove('active');
+                    if(id!=null){
+                        let $btns = document.getElementsByClassName('btn'+id);
+                        if($btns.length>0){
+                            let btnsArray = Array.from($btns);
+                            btnsArray.forEach(btn => {
+                            btn.classList.add('active');
+                        });
+                        };
+                    };
+                });
+            };
+        });
+    };
+    console.log($linksNav);
 });

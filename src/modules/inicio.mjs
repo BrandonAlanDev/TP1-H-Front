@@ -1,5 +1,6 @@
 const inicio = () =>{
     let $inicio = document.createElement(`section`);
+    $inicio.setAttribute('id','inicio');
     $inicio.classList.add('container','flex','flex-col','lg:flex-row','lg:justify-between','inicio');
     
     let $articleText = document.createElement('article');

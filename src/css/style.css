@@ -1,4 +1,6 @@
-
+*{
+    scroll-behavior: smooth;
+}
 html,body{
     margin : 0;
     padding: 0;
@@ -125,6 +127,7 @@ h1{
     transition-duration: 0.2s;
 }
 
+
 .noselect{
     user-select: none;
 }
@@ -192,17 +195,22 @@ h1{
     margin-right : 5vh;
     margin-top: 5vw;
 }
+.active{
+    background-color:rgb(13, 0, 55);
+    color: whitesmoke;
+    transition-duration: 0.2s;
+}
 .glow{
     font-size: 48px;
-    text-shadow: 0 0 40px #f0db4f, 0 0 50px #f0db4f, 0 0 60px #f0db4f;
+    text-shadow: 0 0 10px #ffef89, 0 0 15px #f2d200, 0 0 25px #ffef83;
     animation: glow 2s infinite alternate; /* Animación para alternar la intensidad del resplandor */
 }
 @keyframes glow {
     0% {
-        text-shadow: 0 0 40px #f0db4f, 0 0 50px #f0db4f, 0 0 60px #f0db4f;
+        text-shadow: 0 0 10px #ffef89, 0 0 15px #f2d200, 0 0 20px #ffef83;
     }
     100% {
-        text-shadow: 0 0 50px #f0db4f, 0 0 60px #f0db4f, 0 0 70px #f0db4f;
+        text-shadow: 0 0 20px #ffffff, 0 0 25px #cbc6ff, 0 0 30px #ffffff;
     }
 }
 @media (min-width: 640px) {
