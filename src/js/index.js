@@ -1,11 +1,14 @@
 import navbar from "/src/modules/navbar.mjs";
 import inicio from "/src/modules/inicio.mjs";
+import personajes from "/src/modules/personajes.mjs";
 const $container = document.getElementById("container");
 const $root = document.getElementById("root");
 const $navbar = navbar();
 const $inicio = inicio();
+const $personajes=personajes();
 $root.appendChild($navbar);
 $root.appendChild($inicio);
+$root.appendChild($personajes);
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const image = document.querySelector(".carousel-image");
@@ -141,5 +144,4 @@ document.addEventListener("DOMContentLoaded", function() {
             };
         });
     };
-    console.log($linksNav);
 });

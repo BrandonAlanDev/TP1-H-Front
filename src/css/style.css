@@ -205,6 +205,45 @@ h1{
     text-shadow: 0 0 10px #ffef89, 0 0 15px #f2d200, 0 0 25px #ffef83;
     animation: glow 2s infinite alternate; /* Animación para alternar la intensidad del resplandor */
 }
+.comentar{
+    display: flex;
+    flex-flow: row wrap;
+}
+.perfil{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.label{
+    border-color: rgb(26, 26, 26);
+    border-radius: 20px;
+    border-width: 2px;
+    margin: auto;
+    width: 60vw;
+    min-height: 200px;
+    min-width: 250px;
+}
+.input1{
+    border-color: rgb(26, 26, 26);
+    border-radius: 10px;
+    border-width: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: auto;
+    width: 57vw;
+    min-width: 235px;
+}
+.input2{
+    border-color: rgb(26, 26, 26);
+    border-radius: 10px;
+    border-width: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: auto;
+    width: 57vw;
+    min-height: 140px;
+    min-width: 235px;
+}
 @keyframes glow {
     0% {
         text-shadow: 0 0 10px #ffef89, 0 0 15px #f2d200, 0 0 20px #ffef83;
