@@ -136,35 +136,35 @@ h1{
 .personaje1{
     background-image:url('/src/img/dolia.webp');
     background-size:cover;
-    background-position: bottom;
+    background-position: calc(20% - 300px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
 .personaje2{
     background-image:url('/src/img/biron.webp');
     background-size:cover;
-    background-position: bottom;
+    background-position: calc(20% - 300px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
 .personaje3{
     background-image:url('/src/img/lam.webp');
     background-size:cover;
-    background-position: bottom;
+    background-position: 20% bottom;
     transition-property: all;
     transition-duration: 1s;
 }
 .personaje4{
     background-image:url('/src/img/milady.webp');
     background-size:cover;
-    background-position: bottom;
+    background-position: calc(20% - 300px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
 .personaje5{
     background-image:url('/src/img/alessio.webp');
     background-size:cover;
-    background-position: bottom;
+    background-position: calc(20% - 100px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
@@ -176,6 +176,8 @@ h1{
 }
 .navegacion{
     z-index: 99;
+    border-radius: 20px;
+    margin: auto;
 }
 .lg-ml-60vw {
     min-width: 300px;
@@ -189,6 +191,19 @@ h1{
     width: fit-content;
     margin-right : 5vh;
     margin-top: 5vw;
+}
+.glow{
+    font-size: 48px;
+    text-shadow: 0 0 40px #f0db4f, 0 0 50px #f0db4f, 0 0 60px #f0db4f;
+    animation: glow 2s infinite alternate; /* Animación para alternar la intensidad del resplandor */
+}
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 40px #f0db4f, 0 0 50px #f0db4f, 0 0 60px #f0db4f;
+    }
+    100% {
+        text-shadow: 0 0 50px #f0db4f, 0 0 60px #f0db4f, 0 0 70px #f0db4f;
+    }
 }
 @media (min-width: 640px) {
     .navegacion{
@@ -218,6 +233,11 @@ h1{
 }
 
 @media (min-width: 1024px) {
+    .personaje1{background-position: bottom;}
+    .personaje2{background-position: bottom;}
+    .personaje3{background-position: bottom;}
+    .personaje4{background-position: bottom;}
+    .personaje5{background-position: bottom;}
     .lg-ml-60vw {
         margin-left: 60%;
         width: 40vw;

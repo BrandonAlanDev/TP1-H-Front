@@ -33,19 +33,19 @@ document.addEventListener("DOMContentLoaded", function() {
         showImage(currentIndex);
     }
 
-    function resetInterval() {
+    function resetIntervalId() {
         clearInterval(intervalId);
         intervalId = setInterval(nextImage, 3000);
     }
 
-    image.addEventListener("click", resetInterval);
+    image.addEventListener("click", resetIntervalId);
     prevBtn.addEventListener("click", function() {
         prevImage();
-        resetInterval();
+        resetIntervalId();
     });
     nextBtn.addEventListener("click", function() {
         nextImage();
-        resetInterval();
+        resetIntervalId();
     });
 
     intervalId = setInterval(nextImage, 3000);
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function resetInterval() {
         clearInterval(intervalCharacter);
-        intervalId = setInterval(nextCharacter, 10000);
+        intervalCharacter = setInterval(nextCharacter, 10000);
     }
     intervalCharacter = setInterval(nextCharacter, 10000);
 });
