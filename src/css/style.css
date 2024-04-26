@@ -139,14 +139,14 @@ h1{
 .personaje1{
     background-image:url('/src/img/dolia.webp');
     background-size:cover;
-    background-position: calc(20% - 300px) bottom;
+    background-position: calc(20% - 200px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
 .personaje2{
     background-image:url('/src/img/biron.webp');
     background-size:cover;
-    background-position: calc(20% - 300px) bottom;
+    background-position: calc(20% - 250px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
@@ -160,7 +160,7 @@ h1{
 .personaje4{
     background-image:url('/src/img/milady.webp');
     background-size:cover;
-    background-position: calc(20% - 300px) bottom;
+    background-position: calc(20% - 150px) bottom;
     transition-property: all;
     transition-duration: 1s;
 }
