@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <script type="module" src="/src/js/index.js"></script>
+    <script src="/src/js/opinion.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
@@ -17,9 +18,9 @@
       <section id="opinar" class="bg-amarillo rounded-3xl p-4 mt-5 justify-center align-middle">
         <article class="comentar gap-5 justify-center align-middle items-center">
             <div class="flex flex-col align-middle items-center gap-5">
-                <button type="button" onclick="">Prev</button>
-                <img class="perfil rounded-3xl" src="/src/img/dolia-perfil.webp" alt="imagen de usuario">
-                <button type="button" onclick="">Next</button>
+                <button id="prevPerfil" type="button">Prev</button>
+                <img id="fotoperfil" class="perfil rounded-3xl" src="/src/img/dolia-perfil.webp" alt="imagen de usuario">
+                <button id="nextPerfil" type="button">Next</button>
             </div>
             <div class="label p-2">
                 <form action="" method="post" class="flex flex-row flex-wrap gap-5">
