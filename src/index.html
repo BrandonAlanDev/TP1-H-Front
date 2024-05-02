@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <script type="module" src="/src/js/index.js"></script>
     <script src="/src/js/opinion.js"></script>
+    <script src="/src/js/fetch.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
@@ -17,25 +18,48 @@
       <div id="root"></div>
       <section id="opinar" class="bg-amarillo rounded-3xl p-4 mt-5 justify-center align-middle">
         <article class="comentar gap-5 justify-center align-middle items-center">
-            <div class="flex flex-col align-middle items-center gap-5">
-                <button id="prevPerfil" type="button">Prev</button>
-                <img id="fotoperfil" class="perfil rounded-3xl" src="/src/img/dolia-perfil.webp" alt="imagen de usuario">
-                <button id="nextPerfil" type="button">Next</button>
-            </div>
             <div class="label p-2">
-                <form action="" method="post" class="flex flex-row flex-wrap gap-5">
-                    <div class="flex flex-col gap-5">
-                        <label for="user">Nombre :</label>
-                        <input class="bg-transparent input1" type="text" name="user" id="user" placeholder="Nombre de Usuario">
-                        <label for="comentario">Comentario :</label>
-                        <input class="bg-transparent input2" type="text" name="comentario" id="comentario" placeholder="Ingresa tu opinion aquí">
+                <form id="formulario" method="post" class="flex flex-row flex-wrap gap-5">
+                    <div class="flex flex-col flex-wrap gap-5">
+                        <div class="flex flex-row flex-wrap align-middle items-center gap-5 justify-center">
+                            <div class="flex flex-col flex-wrap align-middle items-center gap-5">
+                                <div class="flex flex-row flex-wrap align-middle items-center gap-5">
+                                    <button id="prevPerfil" class="bg-negro text-amarillo pt-2 pb-2 pl-5 pr-5 rounded-2xl" type="button">Prev</button>
+                                    <button id="nextPerfil" class="bg-negro text-amarillo pt-2 pb-2 pl-5 pr-5 rounded-2xl" type="button">Next</button>
+                                </div>
+                                <img id="fotoperfil" class="perfil imagen-transicion rounded-3xl" src="/src/img/dolia-perfil.webp" alt="imagen de usuario">
+                                <input type="hidden" name="imagen_src" id="imagen_src" value="/src/img/dolia-perfil.webp">
+                            </div>
+                            <div class="items-start flex flex-col flex-wrap">
+                                <label for="user">Nombre :</label>
+                                <input class="bg-transparent input1" type="text" name="user" id="user" placeholder="Nombre de Usuario" autocomplete="off">
+                                <label for="comentario">Comentario :</label>
+                                <input class="bg-transparent input2" type="text" name="comentario" id="comentario" placeholder="Ingresa tu opinion aquí" autocomplete="off">
+                            </div>
+                        </div>
                     </div>
-                    <input class="ml-5" type="button" value="Enviar">
+                    <input class="ml-5 rounded-3xl enviar" type="submit" value="Enviar">
                 </form>
-    
             </div>
 
 
+        </article>
+      </section>
+      <section id="opiniones" class="rounded-3xl p-4 mt-5 justify-center align-middle">
+        <article class="comentar gap-5 justify-center align-middle items-center">
+            <div class="label bg-blanco p-2">
+                    <div class="flex flex-col flex-wrap gap-5">
+                        <div class="flex flex-row flex-wrap align-middle items-center gap-5 justify-center">
+                            <div class="items-start flex flex-col flex-wrap gap-5">
+                                <div class="flex flex-row flex-wrap align-middle items-center gap-5">
+                                    <img class="perfil-comentario rounded-3xl" src="/src/img/dolia-perfil.webp" alt="imagen de usuario">
+                                    <p class="input1">Nombre :</p>
+                                </div>
+                                <p class="input2">Comentario :</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </article>
       </section>
     </main>
