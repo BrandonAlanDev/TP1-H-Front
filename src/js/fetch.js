@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Evita que el formulario se envíe de manera convencional
 
         const formData = new FormData(form); // Captura los datos del formulario
-        const url = 'tu_url_de_destino.php'; // Reemplaza 'tu_url_de_destino.php' con la URL a la que deseas enviar los datos
+        const url = 'tu_url_de_destino.php';
 
         fetch(url, {
             method: 'POST',
@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-            // Aquí puedes manejar la respuesta del servidor si es necesario
         })
         .catch(error => {
             console.error('Error:', error);

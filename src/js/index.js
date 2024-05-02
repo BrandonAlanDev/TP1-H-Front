@@ -1,14 +1,28 @@
 import navbar from "/src/modules/navbar.mjs";
 import inicio from "/src/modules/inicio.mjs";
 import personajes from "/src/modules/personajes.mjs";
-const $container = document.getElementById("container");
+import opinar from "../modules/opinion.mjs";
+import comentario from "../modules/comentario.mjs";
+
 const $root = document.getElementById("root");
 const $navbar = navbar();
 const $inicio = inicio();
 const $personajes=personajes();
+const $opinar=opinar();
+const $comentario1= comentario(0,'Brandon','Cuando sale para LATAM','lam');
+const $comentario2= comentario(1,'Alexis','Maso maso el juego','biron');
+const $comentario3= comentario(2,'Destructor425','Quien para rankeds ☝️🤓','milady');
+const $comentario4= comentario(3,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
+
 $root.appendChild($navbar);
 $root.appendChild($inicio);
 $root.appendChild($personajes);
+$root.appendChild($opinar);
+$root.appendChild($comentario1);
+$root.appendChild($comentario2);
+$root.appendChild($comentario3);
+$root.appendChild($comentario4);
+
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const image = document.querySelector(".carousel-image");
@@ -145,3 +159,100 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     };
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const imagenesPerfil = [
+        '/src/img/dolia-perfil.webp',
+        '/src/img/biron-perfil.webp',
+        '/src/img/lam-perfil.webp',
+        '/src/img/milady-perfil.webp',
+        '/src/img/alessio-perfil.webp'
+    ]
+    const $buttonN  = document.getElementById('nextPerfil');
+    const $buttonP  = document.getElementById('prevPerfil');
+    const $srcImagenEnviar = document.getElementById('imagen_src');
+
+    function nextPerfilImg() {
+        const $imagen = document.getElementById('fotoperfil');
+        const $buttonN = document.getElementById('nextPerfil');
+        const $buttonP = document.getElementById('prevPerfil');
+        let encontro = false;
+
+        for (let i = 0; i < 4; i++) {
+            if ($imagen.getAttribute('src') == imagenesPerfil[i]) {
+                $imagen.classList.remove('imagen-transicion');
+                $buttonN.setAttribute('disabled', true);
+                $buttonP.setAttribute('disabled', true);
+                setTimeout(() => {
+                    $imagen.setAttribute('src', imagenesPerfil[i + 1]);
+                    $srcImagenEnviar.setAttribute('value', imagenesPerfil[i + 1].toString());
+                    $imagen.offsetWidth; // Reflow: esto fuerza al navegador a recalcular el diseño, lo que activa la transición
+                    $imagen.classList.add('imagen-transicion');
+                    $buttonP.disabled=false;
+                    $buttonN.disabled=false;
+                }, 300);
+                encontro = true;
+                break;
+            }
+        }
+
+        if (!encontro) {
+            $imagen.classList.remove('imagen-transicion');
+            $buttonP.disabled=true;
+            $buttonN.disabled=true;
+            setTimeout(() => {
+                $imagen.setAttribute('src', imagenesPerfil[0]);
+                $srcImagenEnviar.setAttribute('value', imagenesPerfil[0].toString());
+                    $imagen.classList.add('imagen-transicion');
+                    $imagen.offsetWidth;
+                    $buttonP.disabled=false;
+                    $buttonN.disabled=false;
+            }, 300);
+        }
+    }
+
+    function prevPerfilImg() {
+        const $imagen = document.getElementById('fotoperfil');
+        const $buttonN = document.getElementById('nextPerfil');
+        const $buttonP = document.getElementById('prevPerfil');
+        let encontro = false;
+
+        for (let i = 4; i > 0; i--) {
+            if ($imagen.getAttribute('src') == imagenesPerfil[i]) {
+                $imagen.classList.remove('imagen-transicion');
+                $buttonP.disabled=true;
+                $buttonN.disabled=true;
+                setTimeout(() => {
+                    $imagen.setAttribute('src', imagenesPerfil[i - 1]);
+                    $srcImagenEnviar.setAttribute('value', imagenesPerfil[i - 1].toString());
+                    $imagen.offsetWidth; // Reflow: esto fuerza al navegador a recalcular el diseño, lo que activa la transición
+                    $imagen.classList.add('imagen-transicion');
+                    $buttonP.disabled=false;
+                    $buttonN.disabled=false;
+                }, 300);
+                encontro = true;
+                break;
+            }
+        }
+
+        if (!encontro) {
+            $imagen.classList.remove('imagen-transicion');
+            $buttonP.disabled=true;
+            $buttonN.disabled=true;
+            setTimeout(() => {
+                $imagen.setAttribute('src', imagenesPerfil[4]);
+                $srcImagenEnviar.setAttribute('value', imagenesPerfil[4].toString());
+                    $imagen.classList.add('imagen-transicion');
+                    $imagen.offsetWidth; // Reflow: esto fuerza al navegador a recalcular el diseño, lo que activa la transición
+                    $buttonP.disabled=false;
+                    $buttonN.disabled=false;
+            }, 300);
+        }
+    }
+
+    const btnNext = document.getElementById('nextPerfil');
+    const btnPrev = document.getElementById('prevPerfil');
+
+    btnNext.addEventListener('click', nextPerfilImg);
+    btnPrev.addEventListener('click', prevPerfilImg);
+});
+
