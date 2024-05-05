@@ -13,15 +13,15 @@ const $comentario1= comentario(0,'Brandon','Cuando sale para LATAM','lam');
 const $comentario2= comentario(1,'Alexis','Maso maso el juego','biron');
 const $comentario3= comentario(2,'Destructor425','Quien para rankeds ☝️🤓','milady');
 const $comentario4= comentario(3,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
+const comentarios = [$comentario1,$comentario2,$comentario3,$comentario4];
 
 $root.appendChild($navbar);
 $root.appendChild($inicio);
 $root.appendChild($personajes);
 $root.appendChild($opinar);
-$root.appendChild($comentario1);
-$root.appendChild($comentario2);
-$root.appendChild($comentario3);
-$root.appendChild($comentario4);
+comentarios.forEach(coment=>{
+    $root.appendChild(coment);
+})
 
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
