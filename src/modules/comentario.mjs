@@ -1,7 +1,7 @@
 const comentario = (id,nombre,comentario,imagen)=>{
     let $comentario = document.createElement('section');
     $comentario.setAttribute('id',`${id}`);
-    $comentario.classList.add('rounded-3xl', 'p-4', 'mt-2', 'justify-center', 'align-middle');
+    $comentario.classList.add('es-comentario','rounded-3xl', 'p-4', 'mt-2', 'justify-center', 'align-middle');
     
     let $article = document.createElement('article');
     $article.classList.add('comentar', 'gap-5', 'justify-center', 'align-middle', 'items-center');

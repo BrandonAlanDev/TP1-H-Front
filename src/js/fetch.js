@@ -1,6 +1,55 @@
+import comentario from "../modules/comentario.mjs";
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('formulario');
+    const $root = document.getElementById("root");
+    const recargar=()=>{
+        let $comentario4= comentario(99,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
+        let $comentario1= comentario(98,'Brandon','Cuando sale para LATAM','lam');
+        let $comentario2= comentario(97,'Alexis','Maso maso el juego','biron');
+        let $comentario3= comentario(96,'Destructor425','Quien para rankeds ☝️🤓','milady');
+        let comentarios = [$comentario1,$comentario2,$comentario3,$comentario4];
+        // INGRESE AQUI  la toma de los elementos con el get agregandolos al arreglo con unshift
+        let comentariosActuales = $root.querySelectorAll('.es-comentario');
+        comentariosActuales.forEach(comentario => {
+            $root.removeChild(comentario);
+        });
 
+        fetch('https://localhost:7035/api/Opinion',{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Hubo un problema al obtener los datos del servidor.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Obtener los comentarios del servidor y agregarlos al arreglo
+            data.forEach(comentarioData => {
+                // Crear un nuevo objeto comentario con los datos obtenidos
+                let nuevoComentario = comentario(comentarioData.id, comentarioData.user, comentarioData.comment, comentarioData.imagen);
+                
+                // Agregar el nuevo comentario al principio del arreglo
+                comentarios.unshift(nuevoComentario);
+            });
+
+            // Renderizar los comentarios en la página
+            comentarios.forEach(coment => {
+                $root.appendChild(coment);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        console.log('comentarios recargados');
+    }
+    const $btnRecarga=document.getElementById('recargar');
+    $btnRecarga.addEventListener('click',recargar);
+    recargar();
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Evita que el formulario se envíe de manera convencional
 
@@ -77,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 throw new Error('Hubo un problema al enviar el formulario.');
             }
+            recargar();
             return response.text();
         })
         .then(data => {

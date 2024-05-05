@@ -2,26 +2,21 @@ import navbar from "/src/modules/navbar.mjs";
 import inicio from "/src/modules/inicio.mjs";
 import personajes from "/src/modules/personajes.mjs";
 import opinar from "../modules/opinion.mjs";
-import comentario from "../modules/comentario.mjs";
+import opiniones from "../modules/opiniones.mjs";
 
 const $root = document.getElementById("root");
 const $navbar = navbar();
 const $inicio = inicio();
 const $personajes=personajes();
 const $opinar=opinar();
-const $comentario1= comentario(0,'Brandon','Cuando sale para LATAM','lam');
-const $comentario2= comentario(1,'Alexis','Maso maso el juego','biron');
-const $comentario3= comentario(2,'Destructor425','Quien para rankeds ☝️🤓','milady');
-const $comentario4= comentario(3,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
-const comentarios = [$comentario1,$comentario2,$comentario3,$comentario4];
+const $opiniones=opiniones();
 
 $root.appendChild($navbar);
 $root.appendChild($inicio);
 $root.appendChild($personajes);
 $root.appendChild($opinar);
-comentarios.forEach(coment=>{
-    $root.appendChild(coment);
-})
+$root.appendChild($opiniones);
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");

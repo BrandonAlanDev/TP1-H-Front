@@ -267,7 +267,7 @@ h1{
     border-width: 2px;
     padding-left: 5px;
     padding-right: 5px;
-    width: 57vw;
+    width: 85vw;
     min-height: 50px;
     min-width: 235px;
 }
@@ -279,6 +279,14 @@ h1{
     width: 150px;
     height: 60px;
 
+}
+.recargar{
+    background-color: rgb(26, 26, 26);
+    color : whitesmoke;
+    font-size: medium;
+    margin: auto;
+    width: 80px;
+    height: 40px;
 }
 .perfil-comentario{
     width: 25px;
@@ -337,5 +345,15 @@ h1{
         font-size: xx-large;
         height: 150px;
     
+    }
+    .comentario{
+        border-color: rgb(26, 26, 26);
+        border-radius: 10px;
+        border-width: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 60vw;
+        min-height: 50px;
+        min-width: 235px;
     }
 }
