@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             $root.removeChild(comentario);
         });
 
-        fetch('https://localhost:7035/api/Opinion',{
+        fetch('http://localhost:5288/api/Opinion',{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,6 +47,62 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         console.log('comentarios recargados');
     }
+    const buscarPorUser = ()=>{
+        let $userSearch=document.getElementById('userSearch');
+        let user = $userSearch.value;
+        let comentarios = [];
+        let patronNombre =/^[a-zA-ZñÑ\-_.,*\d$]+$/;
+
+        // Verificar si el nombre coincide con el patrón
+        let userLimpio = limpiarCadena(user);
+        user=userLimpio;
+        if (!patronNombre.test(user)) {
+            alert('El nombre ingresado no es válido.');
+            return;
+        }
+
+        if(user.length<=3){
+            alert('El nombre debe de ser mayor a 3 Caracteres.');
+            return;
+        }
+        let comentariosActuales = $root.querySelectorAll('.es-comentario');
+        comentariosActuales.forEach(comentario => {
+            $root.removeChild(comentario);
+        });
+        fetch('http://localhost:5288/api/Opinion/user/'+user,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Hubo un problema al obtener los datos del servidor.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Obtener los comentarios del servidor y agregarlos al arreglo
+            data.forEach(comentarioData => {
+                // Crear un nuevo objeto comentario con los datos obtenidos
+                let nuevoComentario = comentario(comentarioData.id, comentarioData.user, comentarioData.comment, comentarioData.imagen);
+                
+                // Agregar el nuevo comentario al principio del arreglo
+                comentarios.unshift(nuevoComentario);
+            });
+
+            // Renderizar los comentarios en la página
+            comentarios.forEach(coment => {
+                $root.appendChild(coment);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        console.log('comentarios recargados');
+    }
+    const $btnBuscarUser=document.getElementById('buscarUser');
+    $btnBuscarUser.addEventListener('click',buscarPorUser)
     const $btnRecarga=document.getElementById('recargar');
     $btnRecarga.addEventListener('click',recargar);
     recargar();
@@ -109,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formData.set('imagen', 'dolia');
                 break;
         }
-        const url = 'https://localhost:7035/api/Opinion';
+        const url = 'http://localhost:5288/api/Opinion';
         const jsonData = {
             user: formData.get('user'),
             comment: formData.get('comment'),
@@ -126,6 +182,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 throw new Error('Hubo un problema al enviar el formulario.');
             }
+            let $nombre = document.getElementById('user');
+            let $comentario = document.getElementById('comentario');
+            $nombre.value="";
+            $comentario.value="";
             recargar();
             return response.text();
         })

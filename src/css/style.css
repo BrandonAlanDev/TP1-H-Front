@@ -288,6 +288,14 @@ h1{
     width: 80px;
     height: 40px;
 }
+.paginado{
+    background-color: rgb(26, 26, 26);
+    color : whitesmoke;
+    font-size: medium;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+}
 .perfil-comentario{
     width: 25px;
     height: 25px;
