@@ -24,7 +24,7 @@ const opiniones=()=>{
     let $page = document.createElement('button');
     $page.innerText="1";
     $page.setAttribute('id','pageOpiniones');
-    $page.classList.add('ml-5', 'rounded-3xl', 'paginado');
+    $page.classList.add('ml-5', 'rounded-3xl', 'paginado','pagina-actual');
 
     let $next = document.createElement('button');
     $next.innerText="→";

@@ -1,8 +1,13 @@
 import comentario from "../modules/comentario.mjs";
 
 document.addEventListener('DOMContentLoaded', function () {
+    let currentPage=1;
+    const pageSize=10;
+    let lastPage=1;
     const form = document.getElementById('formulario');
     const $root = document.getElementById("root");
+    const $pageOp = document.getElementById('pageOpiniones');
+    let commentSize=0;
     const recargar=()=>{
         let $comentario4= comentario(99,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
         let $comentario1= comentario(98,'Brandon','Cuando sale para LATAM','lam');
@@ -36,11 +41,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Agregar el nuevo comentario al principio del arreglo
                 comentarios.unshift(nuevoComentario);
             });
-
+            commentSize=comentarios.length;
+            lastPage=Math.ceil(commentSize/pageSize);
+            $pageOp.innerText="Pagina "+currentPage+" de "+lastPage;
             // Renderizar los comentarios en la página
-            comentarios.forEach(coment => {
-                $root.appendChild(coment);
-            });
+            for(let i=(0+((currentPage-1)*pageSize));(i<(10+((currentPage-1)*pageSize)) && i<comentarios.length);i++){
+                $root.appendChild(comentarios[i]);
+            }
         })
         .catch(error => {
             console.error('Error:', error);
@@ -92,9 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Renderizar los comentarios en la página
+            $pageOp.innerText=""+$userSearch.value;
             comentarios.forEach(coment => {
                 $root.appendChild(coment);
             });
+            
         })
         .catch(error => {
             console.error('Error:', error);
@@ -102,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('comentarios recargados');
     }
     const $btnBuscarUser=document.getElementById('buscarUser');
-    $btnBuscarUser.addEventListener('click',buscarPorUser)
     const $btnRecarga=document.getElementById('recargar');
+    $btnBuscarUser.addEventListener('click',buscarPorUser)
     $btnRecarga.addEventListener('click',recargar);
     recargar();
     form.addEventListener('submit', function (event) {
@@ -196,6 +205,34 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
         });
     });
+    const $prvBtn = document.getElementById('prevOpiniones');
+    $prvBtn.disabled=true;
+    const pbutton=()=>{
+        if(currentPage!=1){
+            currentPage--;
+            $pageOp.innerText="Pagina "+currentPage+" de "+lastPage;
+            recargar();
+            if(currentPage==1){
+                $prvBtn.disabled=true;
+            }if(currentPage < Math.ceil(commentSize / pageSize)){
+                $nxtBtn.disabled=false;
+            }
+        }
+    }
+    $prvBtn.addEventListener('click',pbutton);
+    const $nxtBtn = document.getElementById('nextOpiniones');
+    const nbutton=()=>{
+        if(currentPage != Math.ceil(commentSize / pageSize)){
+            currentPage++;
+            $pageOp.innerText="Pagina "+currentPage+" de "+lastPage;
+            recargar();
+        }if(currentPage>1){
+            $prvBtn.disabled=false;
+        }if(currentPage == Math.ceil(commentSize / pageSize)){
+            $nxtBtn.disabled=true;
+        }
+    }
+    $nxtBtn.addEventListener('click',nbutton);
 });
 function limpiarCadena(cadena) {
     cadena = cadena.trim(); // Eliminar espacios en blanco al inicio y al final
