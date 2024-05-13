@@ -75,6 +75,8 @@ const opinar=()=>{
     $user.setAttribute('id','user');
     $user.setAttribute('placeholder','Nombre de Usuario');
     $user.setAttribute('autocomplete','off');
+    $user.setAttribute('pattern','^[a-zA-ZñÑ\\\\-_.,*\\\\d$]{3,20}$');
+    $user.setAttribute('required', 'required');
     $user.classList.add('bg-transparent', 'input1');
 
     let $lblComment=document.createElement('label');
@@ -87,6 +89,8 @@ const opinar=()=>{
     $comment.setAttribute('id','comentario');
     $comment.setAttribute('placeholder','Ingresa tu opinion aquí');
     $comment.setAttribute('autocomplete','off');
+    $comment.setAttribute('pattern','.{1,500}');
+    $comment.setAttribute('required', 'required');
     $comment.classList.add('bg-transparent', 'input2');
 
     $div6.appendChild($lblUser);

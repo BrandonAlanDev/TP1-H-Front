@@ -17,6 +17,10 @@ $root.appendChild($personajes);
 $root.appendChild($opinar);
 $root.appendChild($opiniones);
 
+window.onresize = function(event) {
+    document.body.style.width = window.innerWidth + "px";
+    document.body.style.height = window.innerHeight + "px";
+};
 
 document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");

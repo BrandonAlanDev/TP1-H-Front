@@ -17,6 +17,8 @@ body{
     font-weight: weight;
     font-style: normal;
     max-width: 100vw;
+    transition: width 0.5s ease;
+    transition: height 0.5s ease;
 }
 h1{
     font-size: 2rem;
@@ -238,10 +240,6 @@ h1{
     min-width: 250px;
 }
 
-
-#prevPerfil, #nextPerfil, .enviar {
-    cursor: pointer;
-}
 .input1{
     border-color: rgb(26, 26, 26);
     border-radius: 10px;
@@ -278,7 +276,6 @@ h1{
     margin: auto;
     width: 150px;
     height: 60px;
-
 }
 .recargar{
     background-color: rgb(26, 26, 26);
@@ -303,6 +300,15 @@ h1{
 .perfil-comentario{
     width: 25px;
     height: 25px;
+}
+#prevPerfil, #nextPerfil, .enviar, .paginado, .recargar {
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+#prevPerfil:hover, #nextPerfil:hover, .enviar:hover, .paginado:hover, .recargar:hover{
+    background-color: rgb(69, 69, 69);
+    box-shadow: 0 0 20px #ffffff;
+    transition: all 0.3s ease-out;
 }
 
 @keyframes glow {
