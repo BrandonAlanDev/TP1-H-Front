@@ -3,6 +3,7 @@ import inicio from "/src/modules/inicio.mjs";
 import personajes from "/src/modules/personajes.mjs";
 import opinar from "../modules/opinion.mjs";
 import opiniones from "../modules/opiniones.mjs";
+import comentario from "../modules/comentario.mjs";
 
 const $root = document.getElementById("root");
 const $navbar = navbar();
@@ -10,12 +11,14 @@ const $inicio = inicio();
 const $personajes=personajes();
 const $opinar=opinar();
 const $opiniones=opiniones();
+const $opinionEjemplo=comentario(1,"Brandon","Que tengan un buen desarrollo","lam");
 
 $root.appendChild($navbar);
 $root.appendChild($inicio);
 $root.appendChild($personajes);
 $root.appendChild($opinar);
 $root.appendChild($opiniones);
+$root.appendChild($opinionEjemplo);
 
 window.onresize = function(event) {
     document.body.style.width = window.innerWidth + "px";

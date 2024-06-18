@@ -311,6 +311,11 @@ h1{
     transition: all 0.3s ease-out;
 }
 
+.fila{
+    width: 100%;
+    max-width: 70vw;
+}
+
 @keyframes glow {
     0% {
         text-shadow: 0 0 10px #ffef89, 0 0 15px #f2d200, 0 0 20px #ffef83;

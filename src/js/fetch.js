@@ -9,17 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const $pageOp = document.getElementById('pageOpiniones');
     let commentSize=0;
     const recargar=()=>{
-        let $comentario4= comentario(99,'Luchito','Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ Luchito jugando  ♿ ♿ ','dolia');
-        let $comentario1= comentario(98,'Brandon','Cuando sale para LATAM','lam');
-        let $comentario2= comentario(97,'Alexis','Maso maso el juego','biron');
-        let $comentario3= comentario(96,'Destructor425','Quien para rankeds ☝️🤓','milady');
-        let comentarios = [$comentario1,$comentario2,$comentario3,$comentario4];
+        let comentarios=[];
         // INGRESE AQUI  la toma de los elementos con el get agregandolos al arreglo con unshift
         let comentariosActuales = $root.querySelectorAll('.es-comentario');
         comentariosActuales.forEach(comentario => {
             $root.removeChild(comentario);
         });
-
         fetch('http://localhost:5288/api/Opinion',{
             method: 'GET',
             headers: {
@@ -35,11 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             // Obtener los comentarios del servidor y agregarlos al arreglo
             data.forEach(comentarioData => {
-                // Crear un nuevo objeto comentario con los datos obtenidos
-                let nuevoComentario = comentario(comentarioData.id, comentarioData.user, comentarioData.comment, comentarioData.imagen);
-                
-                // Agregar el nuevo comentario al principio del arreglo
-                comentarios.unshift(nuevoComentario);
+                if(comentarioData.visible==true){
+                    // Crear un nuevo objeto comentario con los datos obtenidos
+                    let nuevoComentario = comentario(comentarioData.id_comentario, comentarioData.nombre_usuario, comentarioData.comentario, comentarioData.imagen);
+                    
+                    // Agregar el nuevo comentario al principio del arreglo
+                    comentarios.unshift(nuevoComentario);
+                }
             });
             commentSize=comentarios.length;
             lastPage=Math.ceil(commentSize/pageSize);
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error(error);
         });
         console.log('comentarios recargados');
     }
@@ -92,10 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
             // Obtener los comentarios del servidor y agregarlos al arreglo
             data.forEach(comentarioData => {
                 // Crear un nuevo objeto comentario con los datos obtenidos
-                let nuevoComentario = comentario(comentarioData.id, comentarioData.user, comentarioData.comment, comentarioData.imagen);
+                let nuevoComentario = comentario(comentarioData.id_comentario, comentarioData.nombre_usuario, comentarioData.comentario, comentarioData.imagen);
                 
                 // Agregar el nuevo comentario al principio del arreglo
-                comentarios.unshift(nuevoComentario);
+                if(comentarioData.visible){
+                    comentarios.unshift(nuevoComentario);
+                }
             });
 
             // Renderizar los comentarios en la página
@@ -106,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error(error);
         });
         console.log('comentarios recargados');
     }
@@ -125,32 +124,32 @@ document.addEventListener('DOMContentLoaded', function () {
         const patronNombre =/^[a-zA-ZñÑ\-_.,*\d$]+$/;
 
         // Verificar si el nombre coincide con el patrón
-        let userLimpio = limpiarCadena(formData.get('user'));
-        formData.set('user',userLimpio);
-        if (!patronNombre.test(formData.get('user'))) {
+        let userLimpio = limpiarCadena(formData.get('nombre_usuario'));
+        formData.set('nombre_usuario',userLimpio);
+        if (!patronNombre.test(formData.get('nombre_usuario'))) {
             alert('El nombre ingresado no es válido.');
             return;
         }
 
-        if(formData.get('user').length<=3){
+        if(formData.get('nombre_usuario').length<=3){
             alert('El nombre debe de ser mayor a 3 Caracteres.');
             return;
         }
-        if(formData.get('user').length>=20){
+        if(formData.get('nombre_usuario').length>=20){
             alert('El nombre tiene un maximo de 20 Caracteres.');
             return;
         }
 
         // - CONTROL - COMENTARIO -
 
-        let commentLimpio = limpiarCadena(formData.get('comment'));
-        formData.set('comment',commentLimpio);
+        let commentLimpio = limpiarCadena(formData.get('comentario'));
+        formData.set('comentario',commentLimpio);
 
-        if(formData.get('comment').length<1){
+        if(formData.get('comentario').length<1){
             alert('Debes de ingresar un comentario.');
             return;
         }
-        if(formData.get('comment').length>=500){
+        if(formData.get('comentario').length>=500){
             alert('El comentario no puede exceder los 500 caracteres.');
             return;
         }
@@ -176,8 +175,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const url = 'http://localhost:5288/api/Opinion';
         const jsonData = {
-            user: formData.get('user'),
-            comment: formData.get('comment'),
+            id_comentario: 10,
+            comentario: formData.get('comentario'),
+            visible: true,
+            nombre_usuario: formData.get('nombre_usuario'),
             imagen: formData.get('imagen')
         };
         fetch(url, {

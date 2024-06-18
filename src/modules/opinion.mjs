@@ -16,9 +16,14 @@ const opinar=()=>{
     
     let $id=document.createElement('input');
     $id.setAttribute('type','hidden');
-    $id.setAttribute('name','id');
+    $id.setAttribute('name','id_comentario');
+
+    let $visible=document.createElement('input');
+    $visible.setAttribute('type','hidden');
+    $visible.setAttribute('name','visible');
 
     $form.appendChild($id);
+    $form.appendChild($visible);
 
     let $div2=document.createElement('div');
     $div2.classList.add('flex','flex-col', 'flex-wrap', 'gap-5');
@@ -71,7 +76,7 @@ const opinar=()=>{
 
     let $user=document.createElement('input');
     $user.setAttribute('type','text');
-    $user.setAttribute('name','user');
+    $user.setAttribute('name','nombre_usuario');
     $user.setAttribute('id','user');
     $user.setAttribute('placeholder','Nombre de Usuario');
     $user.setAttribute('autocomplete','off');
@@ -85,7 +90,7 @@ const opinar=()=>{
 
     let $comment=document.createElement('input');
     $comment.setAttribute('type','text');
-    $comment.setAttribute('name','comment');
+    $comment.setAttribute('name','comentario');
     $comment.setAttribute('id','comentario');
     $comment.setAttribute('placeholder','Ingresa tu opinion aquí');
     $comment.setAttribute('autocomplete','off');
